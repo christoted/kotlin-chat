@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "611048419162",
+    "project_id": "kotlin-chat-ii",
+    "storage_bucket": "kotlin-chat-ii.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:611048419162:android:d233237304416e61de4d63",
+        "android_client_info": {
+          "package_name": "com.company.kotlinchatii"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "611048419162-3nj55adqdvttu117bv5moqbkb8h1i0k3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6eopCu8E5kjItX1oWXN5cP-KpRlRfX4c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "611048419162-3nj55adqdvttu117bv5moqbkb8h1i0k3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:611048419162:android:cf060e8721c76d0ade4d63",
+        "android_client_info": {
+          "package_name": "com.example.kotlinchatii"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "611048419162-3nj55adqdvttu117bv5moqbkb8h1i0k3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6eopCu8E5kjItX1oWXN5cP-KpRlRfX4c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "611048419162-3nj55adqdvttu117bv5moqbkb8h1i0k3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context=".Activity.SplashActivity">
+
+    <TextView
+        android:id="@+id/id_tv_chatme"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Chat me"
+        android:layout_marginTop="16dp"
+        android:layout_below="@id/id_iv_splash"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold"
+        />
+
+    <ImageView
+        android:id="@+id/id_iv_splash"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/group_1"
+        android:layout_centerInParent="true"
+        />
+</RelativeLayout>
