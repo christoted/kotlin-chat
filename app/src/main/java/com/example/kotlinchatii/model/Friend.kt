@@ -1,7 +1,10 @@
-package com.example.kotlinchatii.Model
+package com.example.kotlinchatii.model
 
 import android.os.Parcel
 import android.os.Parcelable
+import androidx.databinding.BindingAdapter
+import com.bumptech.glide.Glide
+import de.hdodenhof.circleimageview.CircleImageView
 
 data class Friend(
     var name: String? = "",
@@ -11,6 +14,7 @@ data class Friend(
     val uid: String? = "",
     val online: String? = "offline",
     val typing: String? = "false"
+
 ) : Parcelable{
     constructor(parcel: Parcel) : this(
             parcel.readString(),
@@ -43,6 +47,14 @@ data class Friend(
 
         override fun newArray(size: Int): Array<Friend?> {
             return arrayOfNulls(size)
+        }
+
+        @JvmStatic
+        @BindingAdapter("imageUrl")
+        fun loadImage(view: CircleImageView, imageUrl: String?) {
+            imageUrl?.let {
+                Glide.with(view.context).load(imageUrl).into(view)
+            }
         }
     }
 }

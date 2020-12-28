@@ -1,4 +1,4 @@
-package com.example.kotlinchatii.Activity
+package com.example.kotlinchatii.activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity

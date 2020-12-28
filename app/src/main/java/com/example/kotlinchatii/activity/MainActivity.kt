@@ -1,10 +1,9 @@
-package com.example.kotlinchatii.Activity
+package com.example.kotlinchatii.activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import androidx.core.content.ContextCompat
 import com.example.kotlinchatii.R
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*

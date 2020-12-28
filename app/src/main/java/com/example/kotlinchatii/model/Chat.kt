@@ -1,4 +1,4 @@
-package com.example.kotlinchatii.Model
+package com.example.kotlinchatii.model
 
 data class Chat(
     var chatID: String?,

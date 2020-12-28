@@ -1,4 +1,4 @@
-package com.example.kotlinchatii.Activity
+package com.example.kotlinchatii.activity
 
 import android.content.Context
 import android.content.Intent
@@ -11,6 +11,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.kotlinchatii.R
 import com.example.kotlinchatii.Util.Constant
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -32,6 +34,9 @@ class GetUserData : AppCompatActivity() {
     private lateinit var imageUrl: String
     private var image: Uri? = null
     private var storageReference: StorageReference? = null
+
+    //realtime db
+    private var databaseReference: DatabaseReference? = null
 
     var db: FirebaseFirestore? = null
     private var auth: FirebaseAuth? = null
@@ -57,8 +62,7 @@ class GetUserData : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_get_user_data)
 
-        val sharedPreferences = getSharedPreferences("myPref", Context.MODE_PRIVATE)
-        val editor = sharedPreferences.edit()
+        databaseReference = FirebaseDatabase.getInstance().getReference("Users")
 
         db = FirebaseFirestore.getInstance()
 
@@ -69,12 +73,6 @@ class GetUserData : AppCompatActivity() {
             if (checkData()) {
                 setToFirestore(username, status, image!!)
             }
-        }
-
-        editor.apply{
-            putString("name", username)
-            putString("image", image.toString())
-            putString("status", status)
         }
 
         cropActivityResultLauncher = registerForActivityResult(cropActivityForResult) {
@@ -131,7 +129,8 @@ class GetUserData : AppCompatActivity() {
                         val map = mapOf(
                                 "name" to name,
                                 "status" to status,
-                                "image" to imageUrl
+                                "image" to imageUrl,
+                                "uid" to auth!!.uid
                         )
                         //db!!.document(auth!!.uid!!).update(map)
 //                        db!!.collection("Users").add(map).addOnSuccessListener {
@@ -139,7 +138,8 @@ class GetUserData : AppCompatActivity() {
 //                        }.addOnFailureListener{
 //
 //                        }
-                        saveUser(map)
+                        databaseReference!!.child(auth!!.uid!!).updateChildren(map)
+               //         saveUser(map)
                         //userCollectionRef.add(map)
 
                         startActivity(Intent(this, DashboardActivity::class.java))

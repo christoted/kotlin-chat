@@ -5,16 +5,13 @@ import android.os.Bundle
 import android.util.Log
 import android.view.*
 import android.widget.SearchView
-import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.kotlinchatii.Activity.MessageActivity
+import com.example.kotlinchatii.activity.MessageActivity
 import com.example.kotlinchatii.Adapter.ContactAdapter
-import com.example.kotlinchatii.Model.Friend
+import com.example.kotlinchatii.model.Friend
 import com.example.kotlinchatii.R
 import kotlinx.android.synthetic.main.fragment_contact.*
-import java.util.zip.Inflater
 
 private const val ARG_PARAM1 = "param1"
 
@@ -105,6 +102,7 @@ class ContactFragment : Fragment(), ContactAdapter.ContactItemListener {
 //        val bundle = Bundle().apply {
 //            putParcelable(MessageActivity.KEY_FRIEND, friend)
 //        }
+        Log.d("his-id-contact", "onContactItemClick: ${friend.uid}")
         val intent = Intent(activity, MessageActivity::class.java)
         intent.putExtra("friend", friend)
         startActivity(intent)

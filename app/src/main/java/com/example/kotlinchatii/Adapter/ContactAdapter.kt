@@ -1,16 +1,14 @@
 package com.example.kotlinchatii.Adapter
 
 import android.content.Context
-import android.text.Layout
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.kotlinchatii.Model.Friend
+import com.example.kotlinchatii.model.Friend
 import com.example.kotlinchatii.R
 import kotlinx.android.synthetic.main.contact_item_layout.view.*
-import java.util.zip.Inflater
 
 class ContactAdapter(
         val listFriend: ArrayList<Friend>,
