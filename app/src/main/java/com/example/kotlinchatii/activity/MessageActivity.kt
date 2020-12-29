@@ -52,9 +52,10 @@ class MessageActivity : AppCompatActivity() {
         activityMessageBinding = ActivityMessageBinding.inflate(layoutInflater)
         setContentView(activityMessageBinding.root)
         //  setContentView(R.layout.activity_message)
+        auth = FirebaseAuth.getInstance()
+        val friend: Friend? = intent.getParcelableExtra("friend")
 
-
-        if ( intent.hasExtra("chat-id")) {
+        if (intent.hasExtra("chat-id")) {
             chatId = intent.getStringExtra("chat-id")
             hisId = intent.getStringExtra("hisId")
             Log.d("hisIdBro", "onCreate: test12345 $hisId")
@@ -64,12 +65,11 @@ class MessageActivity : AppCompatActivity() {
             hisId = intent.getStringExtra("hisId")
             Log.d("hisIdBro", "onCreate: test12345 $hisId")
             hisImage = intent.getStringExtra("hisImage")
+            hisId = friend?.uid
+            Log.d("hisIdBro", "onCreate: test12345 Bawah $hisId")
         }
 
-        auth = FirebaseAuth.getInstance()
-        val friend: Friend? = intent.getParcelableExtra("friend")
-
-        hisId = friend?.uid
+      //  hisId = friend?.uid
         Log.d("his-id", "onCreate: $hisId")
         hisImage = friend?.image
         Glide.with(this)
@@ -155,7 +155,15 @@ class MessageActivity : AppCompatActivity() {
     }
 
     private fun sendMessage(message: String) {
-        hisId = intent.getStringExtra("hisId")
+
+        if (intent.hasExtra("chat-id")) {
+            hisId = intent.getStringExtra("hisId")
+        } else {
+            val friend: Friend? = intent.getParcelableExtra("friend")
+            hisId = friend?.uid
+        }
+
+
         Log.d("hisIdSend", "sendMessage: $hisId")
         if (chatId == null) {
             createChat(message)
